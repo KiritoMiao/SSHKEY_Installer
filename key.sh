@@ -1,4 +1,6 @@
 #/bin/sh
+apt-get install curl
+yum install curl
 echo '============================
       SSH Key Installer
 	      V1.0 Alpha
