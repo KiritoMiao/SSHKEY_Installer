@@ -12,14 +12,12 @@ chmod 700 authorized_keys
 cd ../
 chmod 600 .ssh
 cd /etc/ssh/
-#sed -i '/PasswordAuthentication/s/#PasswordAuthentication yes/PasswordAuthentication no/g' sshd_config
-#sed -i '/RSAAuthentication/s/#RSAAuthentication yes/RSAAuthentication yes/g' sshd_config
-#sed -i '/PubkeyAuthentication/s/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' sshd_config
-#sed -i '/PasswordAuthentication/s/PasswordAuthentication yes/PasswordAuthentication no/g' sshd_config
 
-
-sed -i "/PasswordAuthentication/c PasswordAuthentication no" sshd_config
-sed -i "/RSAAuthentication/c RSAAuthentication yes" sshd_config
-sed -i "/PubkeyAuthentication/c PubkeyAuthentication yes" sshd_config
+sed -i "/PasswordAuthentication no/c PasswordAuthentication no" sshd_config
+sed -i "/RSAAuthentication no/c RSAAuthentication yes" sshd_config
+sed -i "/PubkeyAuthentication no/c PubkeyAuthentication yes" sshd_config
+sed -i "/PasswordAuthentication yes/c PasswordAuthentication no" sshd_config
+sed -i "/RSAAuthentication yes/c RSAAuthentication yes" sshd_config
+sed -i "/PubkeyAuthentication yes/c PubkeyAuthentication yes" sshd_config
 service sshd restart
 service ssh restart
