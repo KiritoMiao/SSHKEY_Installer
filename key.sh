@@ -1,6 +1,4 @@
 #/bin/sh
-apt-get install curl
-yum install curl
 echo '============================
       SSH Key Installer
 	      V1.0 Alpha
@@ -15,6 +13,8 @@ cd ../
 chmod 600 .ssh
 cd /etc/ssh/
 sed -i '/PasswordAuthentication/s/#PasswordAuthentication yes/PasswordAuthentication no/g' sshd_config
-
+sed -i '/RSAAuthentication/s/#RSAAuthentication yes/RSAAuthentication yes/g' sshd_config
+sed -i '/PubkeyAuthentication/s/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' sshd_config
+sed -i '/PasswordAuthentication/s/PasswordAuthentication yes/PasswordAuthentication no/g' sshd_config
 service sshd restart
 service ssh restart
