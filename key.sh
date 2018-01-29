@@ -1,10 +1,12 @@
 #/bin/sh
-apt-get install curl
-yum install curl
+apt-get update
+apt-get install curl -y
+yum update
+yum install curl -y
 echo '============================
       SSH Key Installer
-	      V1.0 Alpha
-		Author:Kirito
+	 V1.0 Alpha
+	Author:Kirito
 ============================'
 cd ~
 mkdir .ssh
