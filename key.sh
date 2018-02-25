@@ -25,5 +25,7 @@ sed -i "/RSAAuthentication yes/c RSAAuthentication yes" sshd_config
 sed -i "/PubkeyAuthentication yes/c PubkeyAuthentication yes" sshd_config
 service sshd restart
 service ssh restart
+systemctl restart sshd
+systemctl restart ssh
 cd ~
 rm -rf key.sh
