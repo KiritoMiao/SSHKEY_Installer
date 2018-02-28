@@ -1,7 +1,8 @@
 #/bin/sh
-apt-get update
+apt-get update -y
 apt-get install curl -y
-yum update
+yum clean all
+yum make cache
 yum install curl -y
 echo '============================
       SSH Key Installer
@@ -25,5 +26,7 @@ sed -i "/RSAAuthentication yes/c RSAAuthentication yes" sshd_config
 sed -i "/PubkeyAuthentication yes/c PubkeyAuthentication yes" sshd_config
 service sshd restart
 service ssh restart
+systemctl restart sshd
+systemctl restart ssh
 cd ~
 rm -rf key.sh
