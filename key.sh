@@ -2,7 +2,6 @@
 apt-get update -y
 apt-get install curl -y
 yum clean all
-yum make cache
 yum install curl nss -y
 echo '============================
       SSH Key Installer
